@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6c4cff">
+<title>Log in | Tickit To-Do App</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%23c6f432%27 stroke=%27%2317142b%27 stroke-width=%273%27/%3E%3Cpath d=%27M9 16.5l4.5 4.5L23 11%27 fill=%27none%27 stroke=%27%2317142b%27 stroke-width=%274%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth">
+
+<section class="hero">
+  <a class="brand" href="index.html">
+    <span class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4L16 6" fill="none" stroke="#17142b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Tickit
+  </a>
+  <div class="hero-copy">
+    <h1 class="big" aria-label="Plan it. Tick it. Done.">
+      <span class="w" aria-hidden="true"><span style="--i:0">Plan it.</span></span>
+      <span class="w" aria-hidden="true"><span style="--i:1">Tick it.</span></span>
+      <span class="w" aria-hidden="true"><span style="--i:2">Done.</span></span>
+    </h1>
+    <p>A to-do app with lists, due dates, times and reminders. Add tasks, edit them, tick them off and watch the list clear.</p>
+  </div>
+  <div class="belt" id="belt" aria-hidden="true"></div>
+</section>
+
+<main class="auth-main">
+  <div class="card">
+    <div class="tabs" role="tablist" aria-label="Account">
+      <button type="button" role="tab" id="tab-login" aria-selected="true">Log in</button>
+      <button type="button" role="tab" id="tab-register" aria-selected="false">Sign up</button>
+    </div>
+
+    <div id="login-pane" class="pane">
+      <h2>Welcome back</h2>
+      <p class="lead">Log in to open your lists and pick up where you left off.</p>
+      <form id="login-form" novalidate>
+        <div class="field"><label for="l-email">Email</label>
+          <input id="l-email" type="email" autocomplete="email" aria-describedby="l-email-e">
+          <p class="err" id="l-email-e"></p></div>
+        <div class="field"><label for="l-pw">Password</label>
+          <div class="pw"><input id="l-pw" type="password" autocomplete="current-password" aria-describedby="l-pw-e">
+          <button type="button" class="pw-toggle" data-for="l-pw" aria-pressed="false">Show</button></div>
+          <p class="err" id="l-pw-e"></p></div>
+        <label class="check"><input type="checkbox" id="l-keep" checked> Keep me signed in</label>
+        <p class="err" id="l-msg" role="alert"></p>
+        <button class="btn btn-block" type="submit">Log in</button>
+      </form>
+    </div>
+
+    <div id="register-pane" class="pane" hidden>
+      <h2>Create your account</h2>
+      <p class="lead">It takes a few seconds. Your lists are saved in this browser.</p>
+      <form id="register-form" novalidate>
+        <div class="field"><label for="r-name">Full name</label>
+          <input id="r-name" type="text" autocomplete="name" aria-describedby="r-name-e">
+          <p class="err" id="r-name-e"></p></div>
+        <div class="field"><label for="r-email">Email</label>
+          <input id="r-email" type="email" autocomplete="email" aria-describedby="r-email-e">
+          <p class="err" id="r-email-e"></p></div>
+        <div class="field"><label for="r-pw">Password</label>
+          <div class="pw"><input id="r-pw" type="password" autocomplete="new-password" aria-describedby="r-hint r-pw-e">
+          <button type="button" class="pw-toggle" data-for="r-pw" aria-pressed="false">Show</button></div>
+          <div class="meter" id="meter" data-level="0" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          <p class="hint" id="r-hint">Use 8+ characters with a letter and a number.</p>
+          <p class="err" id="r-pw-e"></p></div>
+        <div class="field"><label for="r-pw2">Confirm password</label>
+          <input id="r-pw2" type="password" autocomplete="new-password" aria-describedby="r-pw2-e">
+          <p class="err" id="r-pw2-e"></p></div>
+        <p class="err" id="r-msg" role="alert"></p>
+        <button class="btn btn-block" type="submit">Create account</button>
+      </form>
+    </div>
+
+    <div class="or"><span>or</span></div>
+    <button class="btn btn-lime btn-block" id="guest-btn" type="button">Try it as a guest</button>
+    <p class="note">Frontend-only project: accounts and tasks are saved in this browser.</p>
+  </div>
+</main>
+
+<script src="auth.js"></script>
+</body>
+</html>
